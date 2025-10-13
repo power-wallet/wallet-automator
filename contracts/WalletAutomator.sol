@@ -25,7 +25,7 @@ contract WalletAutomator is Initializable, UUPSUpgradeable, OwnableUpgradeable, 
   mapping(address => uint256) public lastRunByWallet; // per-wallet throttle
 
   /// Storage gap for upgrades
-  uint256[46] private __gap; // 50 - 4 used above
+  uint256[45] private __gap; // 50 - 5 used above
 
   /// initializer: set factory address and sensible defaults
   function initialize(address factory) public initializer {
@@ -69,7 +69,8 @@ contract WalletAutomator is Initializable, UUPSUpgradeable, OwnableUpgradeable, 
   /// Chainlink-compatible view to determine if performUpkeep should run.
   /// Returns false if we ran within the throttle window; otherwise true if at least one wallet needs upkeep.
   function checkUpkeep(bytes calldata /* checkData */) external view override returns (bool upkeepNeeded, bytes memory performData) {
-    (bool found, address targetWallet, bytes memory upkeepData,) = _findNextEligible(startIdxWalletsPerScan, maxWalletsPerScan);
+    uint256 total = _totalWallets();
+    (bool found, address targetWallet, bytes memory upkeepData,) = _findNextEligible(startIdxWalletsPerScan, total);
     if (found) {
       return (true, abi.encode(targetWallet, upkeepData));
     }
@@ -91,7 +92,8 @@ contract WalletAutomator is Initializable, UUPSUpgradeable, OwnableUpgradeable, 
       return;
     }
 
-    (bool foundNext, address nextWallet, bytes memory nextData, uint256 checkedCount) = _findNextEligible(startIdxWalletsPerScan, maxWalletsPerScan);
+    uint256 totalForScan = _totalWallets();
+    (bool foundNext, address nextWallet, bytes memory nextData, uint256 checkedCount) = _findNextEligible(startIdxWalletsPerScan, totalForScan);
     if (foundNext) {
       _performOnWallet(nextWallet, nextData);
       uint256 totalWalletsAfterScanPerform = _totalWallets();
@@ -132,34 +134,35 @@ contract WalletAutomator is Initializable, UUPSUpgradeable, OwnableUpgradeable, 
       return (false, address(0), bytes(""), 0);
     }
     uint256 normalizedStart = startIdx % total;
-    uint256 scanned = 0; // absolute index across all wallets
-    checked = 0;
+
+    // Flatten wallets into a single array for wrap-around indexing
+    address[] memory all = new address[](total);
+    uint256 k = 0;
     for (uint256 i = 0; i < users.length; i++) {
       address[] memory wallets = walletFactory.getUserWallets(users[i]);
       for (uint256 j = 0; j < wallets.length; j++) {
-        scanned++;
-        if (scanned <= normalizedStart) {
-          continue;
-        }
-        if (checked >= maxToCheck) {
-          return (false, address(0), bytes(""), checked);
-        }
-        IPowerWallet w = IPowerWallet(wallets[j]);
-        if (w.isClosed() || w.automationPaused()) {
-          continue;
-        }
-        (bool needed, bytes memory pdata) = w.checkUpkeep("");
-        if (needed) {
-          // Per-wallet throttle: only eligible if outside cooldown
-          if (block.timestamp >= lastRunByWallet[wallets[j]] + minSecondsBetweenRuns) {
-            return (true, wallets[j], pdata, checked);
-          }
-          // Treat throttled-as-needed as checked but not eligible now
-          checked++;
-          continue;
-        }
-        checked++;
+        all[k] = wallets[j];
+        k++;
       }
+    }
+
+    checked = 0;
+    uint256 limit = maxToCheck > total ? total : maxToCheck;
+    for (uint256 step = 1; step <= limit; step++) {
+      uint256 idx = (normalizedStart + step) % total;
+      address waddr = all[idx];
+      IPowerWallet w = IPowerWallet(waddr);
+      if (w.isClosed() || w.automationPaused()) {
+        checked++;
+        continue;
+      }
+      (bool needed, bytes memory pdata) = w.checkUpkeep("");
+      if (needed) {
+        if (block.timestamp >= lastRunByWallet[waddr] + minSecondsBetweenRuns) {
+          return (true, waddr, pdata, checked);
+        }
+      }
+      checked++;
     }
     return (false, address(0), bytes(""), checked);
   }

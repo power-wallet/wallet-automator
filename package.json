@@ -8,7 +8,8 @@
     "deploy:base-sepolia": "hardhat run scripts/deploy.ts --network base-sepolia",
     "deploy:base": "hardhat run scripts/deploy.ts --network base",
     "upgrade:base-sepolia": "hardhat run scripts/upgrade.ts --network base-sepolia",
-    "upgrade:base": "hardhat run scripts/upgrade.ts --network base"
+    "upgrade:base": "hardhat run scripts/upgrade.ts --network base",
+    "verify:upkeep:base-sepolia": "hardhat run scripts/verifyUpkeep.ts --network base-sepolia"
   },
   "keywords": [],
   "author": "",
