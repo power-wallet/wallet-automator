@@ -1,0 +1,298 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x79cec041e963526122ffC7C04F427595a132331B",
+      "txHash": "0x3a9e3ab0feb854ed50dbebe50e82632515e4f51d3f14564692a0b2b4eaa1dcb7",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "b5cdaf2b4e1cec83d6768f0af24e975c894202d8a200d63a8cb3b47941ece718": {
+      "address": "0x2383bA2aA59fEB92B8A684C68ffa16Ea8d5E35DE",
+      "txHash": "0x8d98921295a9d7933e85e7b464f6cf46e8a9289f37e9e31a349263f4369eb8b2",
+      "layout": {
+        "solcVersion": "0.8.24",
+        "storage": [
+          {
+            "label": "walletFactory",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(IWalletFactory)2057",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:20"
+          },
+          {
+            "label": "maxWalletsPerScan",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:21"
+          },
+          {
+            "label": "startIdxWalletsPerScan",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:22"
+          },
+          {
+            "label": "minSecondsBetweenRuns",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:23"
+          },
+          {
+            "label": "lastRunTimestamp",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:24"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:27"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)73_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_contract(IWalletFactory)2057": {
+            "label": "contract IWalletFactory",
+            "numberOfBytes": "20"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    },
+    "a31864978b8b19622c8cc37b822fc79408fbfb091bf1a31479a85577e7cbf4bb": {
+      "address": "0x18b561F794c919C8EcE861E0bbB9467Dd56186fA",
+      "txHash": "0x3400d9726d0a3ade439cf720ac44c8d9827ac20ac89f64bb68341c9a4d5e4517",
+      "layout": {
+        "solcVersion": "0.8.24",
+        "storage": [
+          {
+            "label": "walletFactory",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(IWalletFactory)2732",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:20"
+          },
+          {
+            "label": "maxWalletsPerScan",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:21"
+          },
+          {
+            "label": "startIdxWalletsPerScan",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:22"
+          },
+          {
+            "label": "minSecondsBetweenRuns",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:23"
+          },
+          {
+            "label": "lastRunTimestamp",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:24"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_uint256)46_storage",
+            "contract": "WalletAutomator",
+            "src": "contracts/WalletAutomator.sol:27"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)73_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]",
+            "numberOfBytes": "1472"
+          },
+          "t_contract(IWalletFactory)2732": {
+            "label": "contract IWalletFactory",
+            "numberOfBytes": "20"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

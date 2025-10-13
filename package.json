@@ -1,0 +1,33 @@
+{
+  "name": "wallet-automator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:base-sepolia": "hardhat run scripts/deploy.ts --network base-sepolia",
+    "deploy:base": "hardhat run scripts/deploy.ts --network base",
+    "upgrade:base-sepolia": "hardhat run scripts/upgrade.ts --network base-sepolia",
+    "upgrade:base": "hardhat run scripts/upgrade.ts --network base"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@chainlink/contracts": "^1.4.0",
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@nomicfoundation/hardhat-verify": "^2.1.1",
+    "@openzeppelin/contracts": "5.0.2",
+    "@openzeppelin/contracts-upgradeable": "5.0.2",
+    "@openzeppelin/hardhat-upgrades": "^3.9.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.5.2",
+    "hardhat": "^2.26.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2"
+  }
+}

@@ -1,0 +1,11 @@
+node_modules
+cache
+artifacts
+typechain-types
+.env
+dist
+coverage
+coverage.json
+*.tsbuildinfo
+
+.history
