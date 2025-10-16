@@ -9,7 +9,9 @@
     "deploy:base": "hardhat run scripts/deploy.ts --network base",
     "upgrade:base-sepolia": "hardhat run scripts/upgrade.ts --network base-sepolia",
     "upgrade:base": "hardhat run scripts/upgrade.ts --network base",
-    "verify:upkeep:base-sepolia": "hardhat run scripts/verifyUpkeep.ts --network base-sepolia"
+    "verify:upkeep:base-sepolia": "hardhat run scripts/verifyUpkeep.ts --network base-sepolia",
+    "probe:checkupkeep:base-sepolia": "hardhat run scripts/probeCheckUpkeep.ts --network base-sepolia",
+    "find:reverting:base-sepolia": "hardhat run scripts/findRevertingWallet.ts --network base-sepolia"
   },
   "keywords": [],
   "author": "",
