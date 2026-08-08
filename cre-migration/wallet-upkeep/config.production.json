@@ -1,0 +1,10 @@
+{
+  "chainSelectorName": "ethereum-mainnet-base-1",
+  "receiverAddress": "0x0000000000000000000000000000000000000000",
+  "targets": [
+    { "name": "WalletAutomator", "address": "0x05b9079458D57F80e6638cF0ABaFd31BfBa0f586" },
+    { "name": "TechnicalIndicators", "address": "0xE0087A5EcAaF884894946191eb9d5FD0841D95Ec" }
+  ],
+  "schedule": "0 */5 * * * *",
+  "writeGasLimit": "800000"
+}

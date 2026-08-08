@@ -1,0 +1,9 @@
+*.env
+.env
+node_modules/
+**/node_modules/
+contracts/evm/out/
+contracts/evm/cache/
+*.wasm
+.cre/
+*.cre_build_tmp.js

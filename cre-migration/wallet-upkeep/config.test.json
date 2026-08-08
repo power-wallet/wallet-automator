@@ -1,0 +1,11 @@
+{
+  "chainSelectorName": "ethereum-testnet-sepolia-base-1",
+  "receiverAddress": "0xD2a7aF1038077e4A0dB0Bb407B48e8049668FE70",
+  "targets": [
+    { "name": "WalletAutomator", "address": "0x79cec041e963526122ffC7C04F427595a132331B" },
+    { "name": "TechnicalIndicators", "address": "0x7A0F3B371A2563627EfE1967E7645812909Eb6c5" },
+    { "name": "PoolRebalancer", "address": "0xCbad841061ea2cFD74f0adF2F06488596138B4A9" }
+  ],
+  "schedule": "0 */2 * * * *",
+  "writeGasLimit": "800000"
+}

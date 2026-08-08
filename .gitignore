@@ -9,3 +9,7 @@ coverage.json
 *.tsbuildinfo
 
 .history
+logs/
+keeper/node_modules/
+keeper/.netlify/
+keeper/.env
